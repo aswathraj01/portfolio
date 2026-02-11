@@ -1,0 +1,109 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  background: black;
+  color: #00ffff;
+  font-family: 'Share Tech Mono', monospace;
+  overflow-x: hidden;
+}
+
+/* HEADER */
+
+header {
+  position: fixed;
+  width: 100%;
+  padding: 20px 40px;
+  display: flex;
+  justify-content: space-between;
+  z-index: 100;
+  border-bottom: 1px solid #00ffff33;
+}
+
+nav a {
+  margin-left: 30px;
+  color: #00ffff;
+  text-decoration: none;
+  font-size: 14px;
+}
+
+/* GRID BACKGROUND */
+
+.grid-bg {
+  position: fixed;
+  width: 100%;
+  height: 100%;
+  background-image:
+    linear-gradient(#00ffff11 1px, transparent 1px),
+    linear-gradient(90deg, #00ffff11 1px, transparent 1px);
+  background-size: 50px 50px;
+  z-index: 0;
+  animation: moveGrid 10s linear infinite;
+}
+
+@keyframes moveGrid {
+  from { transform: translateY(0); }
+  to { transform: translateY(50px); }
+}
+
+/* HERO */
+
+.hero {
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  z-index: 10;
+  position: relative;
+}
+
+.glow {
+  font-family: 'Orbitron', sans-serif;
+  font-size: 80px;
+  text-shadow: 0 0 20px #00ffff;
+}
+
+/* PANELS */
+
+.panel {
+  padding: 120px 10%;
+  display: flex;
+  justify-content: space-between;
+  gap: 40px;
+}
+
+.hud-box {
+  border: 1px solid #00ffff;
+  padding: 40px;
+  width: 30%;
+  transition: 0.3s;
+  opacity: 0;
+  transform: translateY(50px);
+}
+
+.hud-box.orange {
+  border-color: orange;
+  color: orange;
+}
+
+.hud-box:hover {
+  box-shadow: 0 0 20px #00ffff88;
+}
+
+/* STATS */
+
+.stats {
+  padding: 120px 10%;
+  display: flex;
+  justify-content: space-around;
+  text-align: center;
+}
+
+.stat h3 {
+  font-size: 50px;
+  color: #00ffff;
+}

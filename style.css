@@ -5,10 +5,20 @@
 }
 
 body {
+  --accent: #00ffff;
   background: black;
-  color: #00ffff;
+  color: var(--accent);
   font-family: 'Share Tech Mono', monospace;
   overflow-x: hidden;
+}
+
+#bgCanvas {
+  position: fixed;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  z-index: 5;
 }
 
 /* HEADER */

@@ -11,6 +11,7 @@
   <!-- GSAP -->
   <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollToPlugin.min.js"></script>
 
   <link rel="stylesheet" href="style.css">
 </head>
@@ -19,103 +20,301 @@
 <header>
   <div class="logo">SYS:// ASWATH</div>
   <nav>
-    <a href="#home">[01] HOME</a>
-    <a href="#about">[02] ABOUT</a>
-    <a href="#projects">[03] PROJECTS</a>
-    <a href="#contact">[04] CONTACT</a>
+    <a href="#home">Home</a>
+    <a href="#about">About</a>
+    <a href="#expertise">Expertise</a>
+    <a href="#projects">Projects</a>
+    <a href="#contact">Contact</a>
   </nav>
 </header>
 
 <canvas id="bgCanvas"></canvas>
 <div class="grid-bg"></div>
 
-<!-- HERO -->
+<!-- HERO/INTRO -->
 <section class="hero" id="home">
-  <h1 class="glow">ASWATH</h1>
-  <p>Building AI Systems • Automation • Futuristic Interfaces</p>
+  <div class="hero-layout">
+    <div class="proton-container" id="proton">
+      <!-- Proton will be rendered on canvas -->
+    </div>
+    <img src="aswath cyber.png" alt="Aswath - Cyberpunk Portrait" class="hero-portrait">
+    <div class="hero-content">
+      <h1 class="name-glow">ASWATH</h1>
+      <p class="role">AI Engineer • Full-Stack Developer</p>
+      <p class="goals">Building intelligent systems • Real-time automation • Futuristic interfaces</p>
+    </div>
+  </div>
 </section>
 
 <!-- ABOUT -->
-<section class="panel" id="about">
-  <div class="hud-box reveal">
-    <h2>Who I Am</h2>
-    <p>
-      Computer Science student passionate about AI engineering, 
-      real-time systems, and intelligent automation.
-    </p>
-  </div>
+<section class="panel about-section" id="about">
+  <div class="about-grid">
+    <div class="about-column">
+      <h3 class="column-title reveal-title">Who am I</h3>
+      <div class="column-content reveal">
+        <p>
+          Computer Science student passionate about AI engineering, 
+          real-time systems, and intelligent automation.
+        </p>
+      </div>
+    </div>
 
-  <div class="hud-box reveal">
-    <h2>What I Build</h2>
-    <p>
-      AI assistants, computer vision systems, secure applications, 
-      and futuristic UI experiences.
-    </p>
-  </div>
+    <div class="about-column">
+      <h3 class="column-title reveal-title">What can I build</h3>
+      <div class="column-content reveal">
+        <p>
+          AI assistants, computer vision systems, secure applications, 
+          and futuristic UI experiences.
+        </p>
+      </div>
+    </div>
 
-  <div class="hud-box reveal orange">
-    <h2>Goal</h2>
-    <p>
-      To become a Machine Learning Engineer building high-impact, 
-      real-world intelligent systems.
-    </p>
+    <div class="about-column highlight">
+      <h3 class="column-title reveal-title goals-title">My Goals</h3>
+      <div class="column-content reveal">
+        <p>
+          To become a Machine Learning Engineer building high-impact, 
+          real-world intelligent systems.
+        </p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- EXPERTISE / WHAT I DO -->
+<section class="panel expertise-section" id="expertise">
+  <div class="section-title reveal-title">What I Do</div>
+  
+  <div class="expertise-grid">
+    <div class="expertise-card reveal">
+      <div class="expertise-icon">⚡</div>
+      <h3 class="expertise-title">AI Engineering</h3>
+      <p class="expertise-description">
+        I design and build intelligent systems, including AI assistants powered by large language models, capable of understanding, reasoning, and interacting with users in real time.
+      </p>
+    </div>
+
+    <div class="expertise-card reveal">
+      <div class="expertise-icon">🔍</div>
+      <h3 class="expertise-title">Computer Vision</h3>
+      <p class="expertise-description">
+        I develop vision-based applications such as sign language recognition systems and smart surveillance tools that interpret and respond to real-world visual data.
+      </p>
+    </div>
+
+    <div class="expertise-card reveal">
+      <div class="expertise-icon">✨</div>
+      <h3 class="expertise-title">Futuristic Interfaces</h3>
+      <p class="expertise-description">
+        I create immersive, next-generation user interfaces with advanced animations, interactive visuals, and smooth transitions to deliver high-end user experiences.
+      </p>
+    </div>
+
+    <div class="expertise-card reveal">
+      <div class="expertise-icon">⚙️</div>
+      <h3 class="expertise-title">Automation</h3>
+      <p class="expertise-description">
+        I build automation systems that streamline workflows, control applications, and enhance productivity through intelligent scripting and system integration.
+      </p>
+    </div>
   </div>
 </section>
 
 <!-- PROJECTS -->
-<section class="panel" id="projects">
+<section class="panel projects-section" id="projects">
+  <div class="section-title reveal-title">Projects</div>
 
-  <div class="hud-box reveal">
-    <h2>Aris AI Assistant</h2>
-    <p>
-      Local LLaMA-powered AI assistant with voice input, 
-      automation control, and intelligent responses.
-    </p>
+  <!-- FEATURED / MAJOR PROJECTS -->
+  <div class="projects-tier featured-tier">
+    <h2 class="tier-title reveal-title">Featured Projects</h2>
+    <div class="projects-grid featured-grid">
+      
+      <!-- Featured Project 1 -->
+      <div class="project-card featured-card reveal">
+        <div class="card-header">
+          <h3 class="project-title">AI-Powered Mobile Chat Application</h3>
+          <span class="project-badge">Featured</span>
+        </div>
+        <p class="project-description">
+          A real-time mobile chat application integrated with large language models (Ollama/LLaMA), supporting intelligent conversations, translation, and speech-to-text features for seamless AI-powered communication.
+        </p>
+        <div class="highlights">
+          <span class="highlight-tag">✓ Real-time messaging</span>
+          <span class="highlight-tag">✓ AI-powered responses</span>
+          <span class="highlight-tag">✓ Multi-modal interaction</span>
+        </div>
+        <div class="tech-tags">
+          <span>Flutter</span>
+          <span>Django</span>
+          <span>LLaMA</span>
+          <span>SQLite</span>
+        </div>
+      </div>
+
+      <!-- Featured Project 2 -->
+      <div class="project-card featured-card reveal">
+        <div class="card-header">
+          <h3 class="project-title">Sign Language Recognition System</h3>
+          <span class="project-badge">Featured</span>
+        </div>
+        <p class="project-description">
+          A computer vision system that detects hand gestures and converts sign language into readable text using real-time webcam input, making technology more accessible.
+        </p>
+        <div class="highlights">
+          <span class="highlight-tag">✓ Real-time gesture detection</span>
+          <span class="highlight-tag">✓ Accessibility-focused</span>
+          <span class="highlight-tag">✓ Image processing pipeline</span>
+        </div>
+        <div class="tech-tags">
+          <span>Python</span>
+          <span>OpenCV</span>
+          <span>MediaPipe</span>
+          <span>ML</span>
+        </div>
+      </div>
+
+      <!-- Featured Project 3 -->
+      <div class="project-card featured-card reveal">
+        <div class="card-header">
+          <h3 class="project-title">Voice-Controlled Assistant</h3>
+          <span class="project-badge">Featured</span>
+        </div>
+        <p class="project-description">
+          A voice-based assistant capable of controlling system functions, automating tasks, and interacting with applications using natural language commands for hands-free operation.
+        </p>
+        <div class="highlights">
+          <span class="highlight-tag">✓ Voice command execution</span>
+          <span class="highlight-tag">✓ System-level automation</span>
+          <span class="highlight-tag">✓ AI integration</span>
+        </div>
+        <div class="tech-tags">
+          <span>Python</span>
+          <span>Speech Recognition</span>
+          <span>Automation</span>
+          <span>NLP</span>
+        </div>
+      </div>
+    </div>
   </div>
 
-  <div class="hud-box reveal">
-    <h2>Sign Language Recognition</h2>
-    <p>
-      Real-time OpenCV + MediaPipe system detecting hand gestures 
-      and converting them into readable text.
-    </p>
+  <!-- TECHNICAL PROJECTS -->
+  <div class="projects-tier technical-tier">
+    <h2 class="tier-title reveal-title">Technical Projects</h2>
+    <div class="projects-grid technical-grid">
+      
+      <!-- Technical Project 1 -->
+      <div class="project-card technical-card reveal">
+        <h3 class="project-title">GhostTouch – Gesture-Based Control</h3>
+        <p class="project-description">
+          A contactless control system using computer vision to interact with the desktop via hand gestures captured through a webcam, enabling touchless interaction.
+        </p>
+        <div class="tech-tags">
+          <span>Python</span>
+          <span>MediaPipe</span>
+          <span>PyAutoGUI</span>
+        </div>
+      </div>
+
+      <!-- Technical Project 2 -->
+      <div class="project-card technical-card reveal">
+        <h3 class="project-title">Music Streaming Website</h3>
+        <p class="project-description">
+          A full-stack web application for streaming music with user interface design, backend integration, and database management for user preferences and playlists.
+        </p>
+        <div class="tech-tags">
+          <span>HTML</span>
+          <span>CSS</span>
+          <span>JavaScript</span>
+          <span>PHP</span>
+          <span>MySQL</span>
+        </div>
+      </div>
+
+      <!-- Technical Project 3 -->
+      <div class="project-card technical-card reveal">
+        <h3 class="project-title">Power BI Analytics Dashboard</h3>
+        <p class="project-description">
+          An interactive data dashboard built using Power BI to visualize and analyze datasets, providing actionable insights through advanced charts and reports.
+        </p>
+        <div class="tech-tags">
+          <span>Power BI</span>
+          <span>Data Visualization</span>
+          <span>Analytics</span>
+        </div>
+      </div>
+    </div>
   </div>
 
-  <div class="hud-box reveal">
-    <h2>GhostTouch</h2>
-    <p>
-      Gesture-based desktop control system using webcam tracking 
-      and Python automation tools.
-    </p>
-  </div>
+  <!-- OTHER PROJECTS -->
+  <div class="projects-tier other-tier">
+    <h2 class="tier-title reveal-title">Other Projects</h2>
+    <div class="projects-grid other-grid">
+      
+      <!-- Other Project 1 -->
+      <div class="project-card other-card reveal">
+        <h3 class="project-title">Portfolio & UI Projects</h3>
+        <p class="project-description">
+          Multiple responsive and futuristic web interfaces designed with modern UI/UX principles, smooth animations, and interactive visuals.
+        </p>
+        <div class="tech-tags">
+          <span>HTML</span>
+          <span>CSS</span>
+          <span>JavaScript</span>
+          <span>GSAP</span>
+        </div>
+      </div>
 
+      <!-- Other Project 2 -->
+      <div class="project-card other-card reveal">
+        <h3 class="project-title">Data Processing Utilities</h3>
+        <p class="project-description">
+          Command-line tools and scripts for data analysis, transformation, and automation of repetitive analytical tasks.
+        </p>
+        <div class="tech-tags">
+          <span>Python</span>
+          <span>Pandas</span>
+          <span>CLI</span>
+        </div>
+      </div>
+
+      <!-- Other Project 3 -->
+      <div class="project-card other-card reveal">
+        <h3 class="project-title">Automation Scripts</h3>
+        <p class="project-description">
+          Custom scripts for workflow automation, file management, and system-level task orchestration to improve productivity.
+        </p>
+        <div class="tech-tags">
+          <span>Python</span>
+          <span>Bash</span>
+          <span>Automation</span>
+        </div>
+      </div>
+    </div>
+  </div>
 </section>
-
-<!-- STATS -->
-<section class="stats">
-  <div class="stat">
-    <h3 class="counter" data-target="4">0</h3>
-    <p>Major Projects</p>
-  </div>
-
-  <div class="stat">
-    <h3 class="counter" data-target="10">0</h3>
-    <p>Technologies Used</p>
-  </div>
-
-  <div class="stat">
-    <h3 class="counter" data-target="2">0</h3>
-    <p>AI Systems Built</p>
-  </div>
 </section>
 
 <!-- CONTACT -->
-<section class="panel" id="contact">
-  <div class="hud-box reveal">
-    <h2>Contact</h2>
-    <p>Email: your-email@gmail.com</p>
-    <p>GitHub: github.com/yourusername</p>
-    <p>LinkedIn: linkedin.com/in/yourprofile</p>
+<section class="panel contact-section" id="contact">
+  <div class="section-title reveal-title">Get in Touch</div>
+  
+  <div class="contact-content">
+    <div class="contact-item reveal">
+      <span class="label">Email:</span>
+      <span class="value">aswathraj749@gmail.com</span>
+    </div>
+    <div class="contact-item reveal">
+      <span class="label">GitHub:</span>
+      <a href="https://github.com/aswathraj01" target="_blank" class="value">github.com/aswathraj01</a>
+    </div>
+    <div class="contact-item reveal">
+      <span class="label">LinkedIn:</span>
+      <a href="https://www.linkedin.com/in/aswath-raj-144b032ba/" target="_blank" class="value">linkedin.com/in/aswath-raj</a>
+    </div>
+    <div class="contact-item reveal">
+      <span class="label">LinkedIn:</span>
+      <a href="https://www.linkedin.com/in/aswath-raj-144b032ba/" target="_blank" class="value">https://www.linkedin.com/in/aswath-raj-144b032ba/</a>
+    </div>
   </div>
 </section>
 

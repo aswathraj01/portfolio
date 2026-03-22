@@ -1,4 +1,136 @@
+/* =====================================================
+   CUSTOM CURSOR — lerp follow + subtle trail particles
+   ===================================================== */
+(function () {
+  // Skip on touch devices
+  if (window.matchMedia('(hover: none)').matches) return;
+
+  const dot = document.getElementById('cursor-dot');
+  if (!dot) return;
+
+  // Current lerp position
+  let dotX = -100, dotY = -100;
+  // Raw mouse target
+  let mouseX = -100, mouseY = -100;
+
+  // Trail particles (capped, subtle)
+  const cursorTrail = [];
+  const MAX_TRAIL = 14;
+  const TRAIL_LIFE = 500; // ms
+
+  // Burst particles (separate array, never evicted by mouse movement)
+  const cursorBurst = [];
+
+  window.addEventListener('mousemove', (e) => {
+    mouseX = e.clientX;
+    mouseY = e.clientY;
+    spawnTrailParticle(e.clientX, e.clientY);
+  }, { passive: true });
+
+  // Click burst — mousedown fires instantly (before href navigation)
+  document.addEventListener('mousedown', (e) => {
+    burstParticles(e.clientX, e.clientY, 16);
+  });
+
+  /* ---- Trail ---- */
+  function spawnTrailParticle(x, y) {
+    cursorTrail.push({
+      x, y,
+      dx: (Math.random() - 0.5) * 0.6,
+      dy: (Math.random() - 0.5) * 0.6,
+      size: Math.random() * 1.5 + 1,
+      born: performance.now(),
+    });
+    if (cursorTrail.length > MAX_TRAIL) cursorTrail.shift();
+  }
+
+  /* ---- Burst ---- */
+  function burstParticles(x, y, count) {
+    for (let i = 0; i < count; i++) {
+      const angle = (Math.PI * 2 * i) / count + (Math.random() - 0.5) * 0.4;
+      const speed = Math.random() * 5 + 3;
+      cursorBurst.push({
+        x, y,
+        dx: Math.cos(angle) * speed,
+        dy: Math.sin(angle) * speed,
+        size: Math.random() * 2 + 2,   // smaller
+        born: performance.now(),
+      });
+    }
+  }
+
+  /* ---- Draw both arrays ---- */
+  function drawCursorTrail(ctx, now) {
+    // -- Trail --
+    const deadT = [];
+    for (let i = 0; i < cursorTrail.length; i++) {
+      const p = cursorTrail[i];
+      const age = now - p.born;
+      if (age >= TRAIL_LIFE) { deadT.push(i); continue; }
+      const progress = age / TRAIL_LIFE;
+      const alpha = (1 - progress) * 0.45;
+      const radius = p.size * (1 - progress * 0.5);
+      p.x += p.dx; p.y += p.dy;
+      p.dx *= 0.96; p.dy *= 0.96;
+
+      const g = ctx.createRadialGradient(p.x, p.y, 0, p.x, p.y, radius * 4);
+      g.addColorStop(0, `rgba(0,255,198,${alpha})`);
+      g.addColorStop(1, 'rgba(0,255,198,0)');
+      ctx.fillStyle = g;
+      ctx.beginPath();
+      ctx.arc(p.x, p.y, radius * 4, 0, Math.PI * 2);
+      ctx.fill();
+    }
+    for (let i = deadT.length - 1; i >= 0; i--) cursorTrail.splice(deadT[i], 1);
+
+    // -- Burst (separate array, bigger, brighter) --
+    const BURST_LIFE = 500;
+    const deadB = [];
+    for (let i = 0; i < cursorBurst.length; i++) {
+      const p = cursorBurst[i];
+      const age = now - p.born;
+      if (age >= BURST_LIFE) { deadB.push(i); continue; }
+      const progress = age / BURST_LIFE;
+      const alpha = (1 - progress) * 0.95;          // bright
+      const radius = p.size * (1 + progress * 0.3); // slight expand
+      p.x += p.dx; p.y += p.dy;
+      p.dx *= 0.92; p.dy *= 0.92;
+
+      // inner solid dot
+      ctx.fillStyle = `rgba(0,255,198,${alpha * 0.9})`;
+      ctx.beginPath();
+      ctx.arc(p.x, p.y, radius, 0, Math.PI * 2);
+      ctx.fill();
+
+      // outer large glow
+      const g = ctx.createRadialGradient(p.x, p.y, 0, p.x, p.y, radius * 6);
+      g.addColorStop(0, `rgba(0,255,198,${alpha * 0.6})`);
+      g.addColorStop(0.5, `rgba(58,134,255,${alpha * 0.2})`);
+      g.addColorStop(1, 'rgba(0,255,198,0)');
+      ctx.fillStyle = g;
+      ctx.beginPath();
+      ctx.arc(p.x, p.y, radius * 6, 0, Math.PI * 2);
+      ctx.fill();
+    }
+    for (let i = deadB.length - 1; i >= 0; i--) cursorBurst.splice(deadB[i], 1);
+  }
+
+  // Expose draw function so the existing rAF loop can call it
+  window._drawCursorTrail = drawCursorTrail;
+
+  // Lerp loop for the DOM dot position
+  function lerpDot() {
+    dotX += (mouseX - dotX) * 0.14;
+    dotY += (mouseY - dotY) * 0.14;
+    dot.style.transform = `translate(${dotX - 6}px, ${dotY - 6}px)`;
+    requestAnimationFrame(lerpDot);
+  }
+  lerpDot();
+})();
+
+
 gsap.registerPlugin(ScrollTrigger, ScrollToPlugin);
+
 
 /* Canvas Background Effects */
 const canvas = document.getElementById('bgCanvas');
@@ -144,6 +276,11 @@ function drawEnergyCore() {
     ctx.beginPath();
     ctx.arc(p.x, p.y, p.size * 6, 0, Math.PI * 2);
     ctx.fill();
+  }
+
+  // Cursor trail particles (rendered by cursor module if active)
+  if (typeof window._drawCursorTrail === 'function') {
+    window._drawCursorTrail(ctx, now);
   }
 
   ctx.globalCompositeOperation = 'source-over';
@@ -292,37 +429,53 @@ document.querySelectorAll('.reveal, .reveal-title, .about-column, .expertise-car
   animationObserver.observe(el);
 });
 
-/* Active Section Highlight on Scroll */
-const sectionObserverOptions = {
-  threshold: 0.3,
-  rootMargin: '0px 0px -60% 0px'
-};
-
-const sectionObserver = new IntersectionObserver((entries) => {
+/* PROGRESS BAR ANIMATION — triggered on scroll into view */
+const progressObserver = new IntersectionObserver((entries) => {
   entries.forEach(entry => {
-    if (entry.isIntersecting) {
-      const sectionId = entry.target.id;
-      
-      // Remove active class from all nav links
-      document.querySelectorAll('nav a').forEach(link => {
-        link.classList.remove('active');
-      });
-      
-      // Add active class to corresponding nav link
-      const activeLink = document.querySelector(`nav a[href="#${sectionId}"]`);
-      if (activeLink) {
-        activeLink.classList.add('active');
+    const fills = entry.target.querySelectorAll('.progress-fill');
+    fills.forEach(fill => {
+      if (entry.isIntersecting) {
+        // small delay so the card reveal animation completes first
+        setTimeout(() => {
+          fill.style.width = fill.dataset.width + '%';
+        }, 300);
+      } else {
+        fill.style.width = '0';   // reset for re-play on re-entry
+      }
+    });
+  });
+}, { threshold: 0.3 });
+
+document.querySelectorAll('.current-card').forEach(card => {
+  progressObserver.observe(card);
+});
+
+/* Active Section Highlight on Scroll */
+const sections = document.querySelectorAll("section, .panel");
+const navLinks = document.querySelectorAll("nav a");
+
+window.addEventListener("scroll", () => {
+  let current = "";
+
+  sections.forEach(section => {
+    // 120px offset to trigger before exactly reaching the top
+    const sectionTop = section.offsetTop - 120;
+    const sectionHeight = section.offsetHeight;
+
+    if (window.scrollY >= sectionTop) {
+      const id = section.getAttribute("id");
+      if (id) {
+        current = id;
       }
     }
   });
-}, sectionObserverOptions);
 
-// Observe all sections for active state
-['home', 'about', 'expertise', 'projects', 'contact'].forEach(id => {
-  const section = document.getElementById(id);
-  if (section) {
-    sectionObserver.observe(section);
-  }
+  navLinks.forEach(link => {
+    link.classList.remove("active");
+    if (current && link.getAttribute("href") === `#${current}`) {
+      link.classList.add("active");
+    }
+  });
 });
 
 /* Navigation Smooth Scroll Handler */

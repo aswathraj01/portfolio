@@ -17,6 +17,31 @@
 </head>
 <body>
 
+<!-- CUSTOM CURSOR -->
+<div id="cursor-dot"></div>
+
+<!-- SOCIAL ICONS — fixed to viewport, direct child of body -->
+<div class="social-icons">
+  <!-- LinkedIn -->
+  <a href="https://www.linkedin.com/in/aswath-raj-144b032ba/" target="_blank" aria-label="LinkedIn">
+    <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="currentColor">
+      <path d="M20.447 20.452H17.01v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.584V9h3.288v1.561h.046c.457-.865 1.575-1.777 3.243-1.777 3.468 0 4.106 2.283 4.106 5.251v6.417zM5.337 7.433a1.94 1.94 0 0 1-1.938-1.942 1.94 1.94 0 0 1 1.938-1.938 1.94 1.94 0 0 1 1.942 1.938 1.94 1.94 0 0 1-1.942 1.942zm1.649 13.019H3.685V9h3.301v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/>
+    </svg>
+  </a>
+  <!-- GitHub -->
+  <a href="https://github.com/aswathraj01" target="_blank" aria-label="GitHub">
+    <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="currentColor">
+      <path d="M12 .297c-6.63 0-12 5.373-12 12 0 5.303 3.438 9.8 8.205 11.385.6.113.82-.258.82-.577 0-.285-.01-1.04-.015-2.04-3.338.724-4.042-1.61-4.042-1.61C4.422 18.07 3.633 17.7 3.633 17.7c-1.087-.744.084-.729.084-.729 1.205.084 1.838 1.236 1.838 1.236 1.07 1.835 2.809 1.305 3.495.998.108-.776.417-1.305.76-1.605-2.665-.3-5.466-1.332-5.466-5.93 0-1.31.465-2.38 1.235-3.22-.135-.303-.54-1.523.105-3.176 0 0 1.005-.322 3.3 1.23.96-.267 1.98-.399 3-.405 1.02.006 2.04.138 3 .405 2.28-1.552 3.285-1.23 3.285-1.23.645 1.653.24 2.873.12 3.176.765.84 1.23 1.91 1.23 3.22 0 4.61-2.805 5.625-5.475 5.92.42.36.81 1.096.81 2.22 0 1.606-.015 2.896-.015 3.286 0 .315.21.69.825.57C20.565 22.092 24 17.592 24 12.297c0-6.627-5.373-12-12-12"/>
+    </svg>
+  </a>
+  <!-- X (Twitter) -->
+  <a href="https://x.com/aswathraj10" target="_blank" aria-label="X">
+    <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="currentColor">
+      <path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-4.714-6.231-5.401 6.231H2.746l7.737-8.835L1.254 2.25H8.08l4.253 5.622L18.244 2.25zm-1.161 17.52h1.833L7.084 4.126H5.117z"/>
+    </svg>
+  </a>
+</div>
+
 <header>
   <div class="logo">SYS:// ASWATH</div>
   <nav>
@@ -37,11 +62,29 @@
     <div class="proton-container" id="proton">
       <!-- Proton will be rendered on canvas -->
     </div>
-    <img src="images/aswath cyber.png" alt="Aswath - Cyberpunk Portrait" class="hero-portrait">
+    <img src="images/aswath cyber mob.png" alt="Aswath - Cyberpunk Portrait" class="hero-portrait">
     <div class="hero-content">
       <h1 class="name-glow">ASWATH</h1>
       <p class="role">AI Engineer • Full-Stack Developer</p>
       <p class="goals">Building intelligent systems • Real-time automation • Futuristic interfaces</p>
+      <!-- Mobile-only social icons (hidden on desktop) -->
+      <div class="social-icons social-icons-mobile">
+        <a href="https://www.linkedin.com/in/aswath-raj-144b032ba/" target="_blank" aria-label="LinkedIn">
+          <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="currentColor">
+            <path d="M20.447 20.452H17.01v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.584V9h3.288v1.561h.046c.457-.865 1.575-1.777 3.243-1.777 3.468 0 4.106 2.283 4.106 5.251v6.417zM5.337 7.433a1.94 1.94 0 0 1-1.938-1.942 1.94 1.94 0 0 1 1.938-1.938 1.94 1.94 0 0 1 1.942 1.938 1.94 1.94 0 0 1-1.942 1.942zm1.649 13.019H3.685V9h3.301v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/>
+          </svg>
+        </a>
+        <a href="https://github.com/aswathraj01" target="_blank" aria-label="GitHub">
+          <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="currentColor">
+            <path d="M12 .297c-6.63 0-12 5.373-12 12 0 5.303 3.438 9.8 8.205 11.385.6.113.82-.258.82-.577 0-.285-.01-1.04-.015-2.04-3.338.724-4.042-1.61-4.042-1.61C4.422 18.07 3.633 17.7 3.633 17.7c-1.087-.744.084-.729.084-.729 1.205.084 1.838 1.236 1.838 1.236 1.07 1.835 2.809 1.305 3.495.998.108-.776.417-1.305.76-1.605-2.665-.3-5.466-1.332-5.466-5.93 0-1.31.465-2.38 1.235-3.22-.135-.303-.54-1.523.105-3.176 0 0 1.005-.322 3.3 1.23.96-.267 1.98-.399 3-.405 1.02.006 2.04.138 3 .405 2.28-1.552 3.285-1.23 3.285-1.23.645 1.653.24 2.873.12 3.176.765.84 1.23 1.91 1.23 3.22 0 4.61-2.805 5.625-5.475 5.92.42.36.81 1.096.81 2.22 0 1.606-.015 2.896-.015 3.286 0 .315.21.69.825.57C20.565 22.092 24 17.592 24 12.297c0-6.627-5.373-12-12-12"/>
+          </svg>
+        </a>
+        <a href="https://x.com/aswathraj10" target="_blank" aria-label="X">
+          <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="currentColor">
+            <path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-4.714-6.231-5.401 6.231H2.746l7.737-8.835L1.254 2.25H8.08l4.253 5.622L18.244 2.25zm-1.161 17.52h1.833L7.084 4.126H5.117z"/>
+          </svg>
+        </a>
+      </div>
     </div>
   </div>
 </section>
@@ -129,7 +172,33 @@
     <h2 class="tier-title reveal-title">Featured Projects</h2>
     <div class="projects-grid featured-grid">
       
-      <!-- Featured Project 1 -->
+      <!-- Featured Project 1 — Voice-Controlled Assistant -->
+      <a href="https://github.com/aswathraj01/Aris-VoiceAi" target="_blank" class="project-link">
+      <div class="project-card featured-card reveal">
+        <div class="card-header">
+          <h3 class="project-title">Voice-Controlled Assistant</h3>
+          <span class="project-badge">Featured</span>
+        </div>
+        <p class="project-description">
+          A voice-controlled assistant capable of executing system commands, automating tasks, and interacting with applications using natural language input with local AI model integration.
+        </p>
+        <div class="highlights">
+          <span class="highlight-tag">✓ Voice command execution</span>
+          <span class="highlight-tag">✓ Desktop control & automation</span>
+          <span class="highlight-tag">✓ Local AI model integration</span>
+        </div>
+        <div class="tech-tags">
+          <span>Python</span>
+          <span>Speech Recognition</span>
+          <span>TTS</span>
+          <span>LLaMA (Ollama)</span>
+          <span>Automation</span>
+        </div>
+      </div>
+      </a>
+
+      <!-- Featured Project 2 -->
+      <a href="https://github.com/aswathraj01/Mobile-Chat-Application-UsingLlama" target="_blank" class="project-link">
       <div class="project-card featured-card reveal">
         <div class="card-header">
           <h3 class="project-title">AI-Powered Mobile Chat Application</h3>
@@ -150,8 +219,10 @@
           <span>SQLite</span>
         </div>
       </div>
+      </a>
 
       <!-- Featured Project 2 -->
+      <a href="https://github.com/aswathraj01/Sign-Language-to-Speech" target="_blank" class="project-link">
       <div class="project-card featured-card reveal">
         <div class="card-header">
           <h3 class="project-title">Sign Language Recognition System</h3>
@@ -172,28 +243,30 @@
           <span>ML</span>
         </div>
       </div>
+      </a>
 
       <!-- Featured Project 3 -->
+      <a href="https://github.com/aswathraj01/hashlock-messenger-web-" target="_blank" class="project-link">
       <div class="project-card featured-card reveal">
         <div class="card-header">
-          <h3 class="project-title">Voice-Controlled Assistant</h3>
+          <h3 class="project-title">HashLock Messenger</h3>
           <span class="project-badge">Featured</span>
         </div>
         <p class="project-description">
-          A voice-based assistant capable of controlling system functions, automating tasks, and interacting with applications using natural language commands for hands-free operation.
+          A secure end-to-end encrypted messaging web application with hashing-based authentication, ensuring private and tamper-proof communication between users.
         </p>
         <div class="highlights">
-          <span class="highlight-tag">✓ Voice command execution</span>
-          <span class="highlight-tag">✓ System-level automation</span>
-          <span class="highlight-tag">✓ AI integration</span>
+          <span class="highlight-tag">✓ End-to-end encryption</span>
+          <span class="highlight-tag">✓ Hash-based authentication</span>
+          <span class="highlight-tag">✓ Secure messaging</span>
         </div>
         <div class="tech-tags">
-          <span>Python</span>
-          <span>Speech Recognition</span>
-          <span>Automation</span>
-          <span>NLP</span>
+          <span>Web</span>
+          <span>Cryptography</span>
+          <span>Security</span>
         </div>
       </div>
+      </a>
     </div>
   </div>
 
@@ -203,6 +276,7 @@
     <div class="projects-grid technical-grid">
       
       <!-- Technical Project 1 -->
+      <a href="https://github.com/aswathraj01/GhostTouch" target="_blank" class="project-link">
       <div class="project-card technical-card reveal">
         <h3 class="project-title">GhostTouch – Gesture-Based Control</h3>
         <p class="project-description">
@@ -214,8 +288,10 @@
           <span>PyAutoGUI</span>
         </div>
       </div>
+      </a>
 
       <!-- Technical Project 2 -->
+      <a href="https://github.com/aswathraj01/Ryythamwave-project-0-Music-streaming" target="_blank" class="project-link">
       <div class="project-card technical-card reveal">
         <h3 class="project-title">Music Streaming Website</h3>
         <p class="project-description">
@@ -229,8 +305,10 @@
           <span>MySQL</span>
         </div>
       </div>
+      </a>
 
       <!-- Technical Project 3 -->
+      <a href="https://github.com/aswathraj01/Retail-Sales-Dashboard" target="_blank" class="project-link">
       <div class="project-card technical-card reveal">
         <h3 class="project-title">Power BI Analytics Dashboard</h3>
         <p class="project-description">
@@ -242,6 +320,7 @@
           <span>Analytics</span>
         </div>
       </div>
+      </a>
     </div>
   </div>
 
@@ -251,6 +330,7 @@
     <div class="projects-grid other-grid">
       
       <!-- Other Project 1 -->
+      <a href="https://github.com/aswathraj01/portfolio" target="_blank" class="project-link">
       <div class="project-card other-card reveal">
         <h3 class="project-title">Portfolio & UI Projects</h3>
         <p class="project-description">
@@ -263,8 +343,10 @@
           <span>GSAP</span>
         </div>
       </div>
+      </a>
 
       <!-- Other Project 2 -->
+      <a href="https://github.com/aswathraj01/data-processing-utils" target="_blank" class="project-link">
       <div class="project-card other-card reveal">
         <h3 class="project-title">Data Processing Utilities</h3>
         <p class="project-description">
@@ -276,8 +358,10 @@
           <span>CLI</span>
         </div>
       </div>
+      </a>
 
       <!-- Other Project 3 -->
+      <a href="https://github.com/aswathraj01/automation-scripts" target="_blank" class="project-link">
       <div class="project-card other-card reveal">
         <h3 class="project-title">Automation Scripts</h3>
         <p class="project-description">
@@ -289,9 +373,76 @@
           <span>Automation</span>
         </div>
       </div>
+      </a>
+
+      <!-- Other Project 4 -->
+      <a href="https://github.com/aswathraj01/SkillExchangePlatform" target="_blank" class="project-link">
+      <div class="project-card other-card reveal">
+        <h3 class="project-title">Skill Exchange Platform</h3>
+        <p class="project-description">
+          A modern UI-based platform designed for users to exchange skills and connect with others. Focused on clean design, responsive layout, and intuitive user experience.
+        </p>
+        <div class="tech-tags">
+          <span>HTML</span>
+          <span>CSS</span>
+          <span>JavaScript</span>
+        </div>
+      </div>
+      </a>
     </div>
   </div>
 </section>
+</section>
+
+<!-- CURRENTLY WORKING ON -->
+<section class="panel current-section" id="current">
+  <div class="section-title reveal-title">Currently Working On</div>
+
+  <div class="current-grid">
+
+    <!-- Current Project 1 -->
+    <div class="current-card reveal">
+      <div class="current-card-header">
+        <h3 class="current-title">Sign Language Recognition System <span class="upgrade-tag">Upgrade</span></h3>
+        <span class="status-badge active">In Progress</span>
+      </div>
+      <p class="current-description">
+        Enhancing the existing sign language detection system by adding voice output functionality, enabling real-time conversion of sign language into speech.
+      </p>
+      <div class="current-tech">Python • OpenCV • MediaPipe • TTS</div>
+      <div class="progress-wrap">
+        <div class="progress-header">
+          <span class="progress-label">Progress</span>
+          <span class="progress-pct">70%</span>
+        </div>
+        <div class="progress-bar">
+          <div class="progress-fill" data-width="70"></div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Current Project 2 -->
+    <div class="current-card reveal">
+      <div class="current-card-header">
+        <h3 class="current-title">Voice-Controlled Assistant <span class="upgrade-tag">Enhancement</span></h3>
+        <span class="status-badge active">In Progress</span>
+      </div>
+      <p class="current-description">
+        Improving the voice-controlled assistant by adding advanced features, enhancing automation capabilities, and expanding its interaction with system and web tools.
+      </p>
+      <div class="current-tech">Python • LLaMA (Ollama) • Automation Libraries</div>
+      <div class="progress-wrap">
+        <div class="progress-header">
+          <span class="progress-label">Progress</span>
+          <span class="progress-pct">60%</span>
+        </div>
+        <div class="progress-bar">
+          <div class="progress-fill" data-width="60"></div>
+        </div>
+      </div>
+    </div>
+
+  </div>
 </section>
 
 <!-- CONTACT -->
